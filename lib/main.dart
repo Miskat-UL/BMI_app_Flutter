@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'input_file.dart';
+import 'screens/input_file.dart';
 
 void main() {
   runApp(BMICalculator());
@@ -19,7 +19,7 @@ class BMICalculator extends StatelessWidget {
           overlayShape: RoundSliderOverlayShape(overlayRadius: 30.0),
         ),
         primaryColor: Color(0xFF0A0E21),
-        scaffoldBackgroundColor: Color(0xFFEEEEEE),
+        scaffoldBackgroundColor: Color(0xFF0A0E21),
       ),
       home: InputPage(),
     );

@@ -17,3 +17,29 @@ const kNumberStyle = TextStyle(
   fontSize: 50.0,
   fontWeight: FontWeight.w900,
 );
+
+const kCalculateButtonStyle = TextStyle(
+  color: Colors.white,
+  fontSize: 27.0,
+  fontWeight: FontWeight.bold,
+);
+
+const kResultText = TextStyle(
+  fontSize: 50.0,
+  fontWeight: FontWeight.bold,
+);
+
+const kWeightMeasure = TextStyle(
+  color: Color(0xFF24D876),
+  fontSize: 22.0,
+  fontWeight: FontWeight.bold,
+);
+
+const kBmi = TextStyle(
+  fontSize: 100.0,
+  fontWeight: FontWeight.bold,
+);
+
+const kResult = TextStyle(
+  fontSize: 23.0,
+);

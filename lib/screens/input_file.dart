@@ -3,9 +3,12 @@ import 'dart:ui';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'iconClass.dart';
-import 'constant.dart';
-import 'reuseableCard.dart';
+import 'package:bmi_calculator/components/iconClass.dart';
+import 'package:bmi_calculator/components/constant.dart';
+import 'package:bmi_calculator/components/reuseableCard.dart';
+import 'result_page.dart';
+import 'package:bmi_calculator/components/buttons.dart';
+import 'package:bmi_calculator/calculatorBrain.dart';
 
 enum G { male, female }
 
@@ -244,11 +247,22 @@ class _InputPageState extends State<InputPage> {
               ],
             ),
           ),
-          Container(
-            margin: EdgeInsets.only(top: 15.0),
-            color: kBottomContainerColor,
-            width: double.infinity,
-            height: kBottomContHeight,
+          CalculateButton(
+            onTap: () {
+              CalculatorBrain calculator =
+                  CalculatorBrain(height: height, weight: weight);
+
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => ResultPage(
+                          bmiResult: calculator.calcBmi(),
+                          resultText: calculator.getResult(),
+                          introText: calculator.introResult(),
+                        )),
+              );
+            },
+            buttonString: "Calculate",
           ),
         ],
       ),
@@ -256,26 +270,6 @@ class _InputPageState extends State<InputPage> {
   }
 }
 
-class RoundIconButton extends StatelessWidget {
-  RoundIconButton({this.icon, this.pressed});
-
-  final IconData icon;
-  final Function pressed;
-  @override
-  Widget build(BuildContext context) {
-    return RawMaterialButton(
-      onPressed: pressed,
-      child: Icon(icon),
-      constraints: BoxConstraints.tightFor(
-        width: 56.0,
-        height: 56.0,
-      ),
-      elevation: 6.0,
-      shape: CircleBorder(),
-      fillColor: Color(0xFF4C4F5E),
-    );
-  }
-}
 // Container(
 //         margin: EdgeInsets.all(15.0),
 //         height: 200.0,
